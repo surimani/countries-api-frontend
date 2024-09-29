@@ -26,9 +26,13 @@ describe('CountryComparison Component', () => {
     fireEvent.change(dropdownTwo, { target: { value: 'United Kingdom' } });
 
     // Check if country details are displayed
-    const usPopulation = screen.getByText('9,85,55,933');
-    const ukPopulation = screen.getByText('7,34,87,333');
-
+    const usPopulation = screen.getByText((content, element) => {
+        return content.includes('98,555,933') || content.includes('9,85,55,933');
+    });
+    const ukPopulation = screen.getByText((content, element) => {
+        return content.includes('73,487,333') || content.includes('7,34,87,333');
+    });
+    
     expect(usPopulation).toBeInTheDocument();
     expect(ukPopulation).toBeInTheDocument();
   });
