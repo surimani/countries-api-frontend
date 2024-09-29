@@ -30,7 +30,7 @@ const CountryList: React.FC = () => {
         setDisplayedCountries(filteredCountries.slice(0, batchSize));
         setCurrentIndex(batchSize);
     }
-  }, [filteredCountries]);
+  }, [filteredCountries, batchSize]);
 
   if (loading) return <Loader />;
 

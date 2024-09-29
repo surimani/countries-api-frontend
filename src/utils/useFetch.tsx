@@ -25,6 +25,7 @@ export function useFetch<T>(fetchFunction: (...args: any[]) => Promise<AxiosResp
         setError(error.response.data.message || error.response.data.error || error.message || 'An error occurred while fetching data.');
         setLoading(false);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [depArgs]);
 
   return { data, loading, error };
